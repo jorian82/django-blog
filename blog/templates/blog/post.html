@@ -1,0 +1,10 @@
+{% extends "personal/header.html" %}
+
+
+{% block content %}
+
+	<h3>{{ post.title }}</h3>
+	<h6>on {{ post.date }}</h6>
+	<div class="bs-sidebar">{{ post.body | safe | linebreaks }}</div>
+	<!-- the safe filter is to allow html to be ejecuted, if the comment comes with some html tags they will be interpreted in the comment -->
+{% endblock %}
