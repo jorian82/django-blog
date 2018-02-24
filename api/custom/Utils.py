@@ -5,13 +5,10 @@ class Object:
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 
+    def dateToJSON(self, my_dictionary):
+        return json.dumps(my_dictionary, indent=4, sort_keys=True, default=str)
+
 class DateUtil(Object):
     def __init__(self):
-        self.shortDate = datetime.date.today()
-        self.fullDate = datetime.datetime.today()
-
-    def __str__(self):
-        return self.shortDate
-
-    def parseJSON(self):
-        return "\\{ 'shortDate': {0}, 'fullDate': {1} \\}".format(self.shortDate, self.fullDate)
+        self.shortDate = str(datetime.date.today())
+        self.fullDate = str(datetime.datetime.today())

@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .custom.Greeting import Greeting
 from .custom.Messaging import CustomError, Message
 from .custom.Utils import DateUtil
+import json
 
 # $.ajax({url:"/api/rest/hello/", data:{"name":"Jorge"}, dataType: "json" })
 
@@ -17,7 +18,8 @@ def hello(request   ) :
 
 def time(request):
     date = DateUtil()
-    return HttpResponse("{{ data: {{ shortDate: {0}, fullDate: {1} }} }}".format(date.shortDate, date.fullDate))
+    message = Message("Returning the JSON date","success",date.toJSON())
+    return HttpResponse(message.toJSON())
 
 def whosthere(request):
     return HttpResponse(CustomError('This is a test of the CustomError class').toJSON())
