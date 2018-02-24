@@ -25,14 +25,16 @@ SECRET_KEY = '29)rqev)*ramok7r6u5@=d-co2*aigxos0+muvp$_ovq_)==3a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com', '.medinreal.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'api',
     'blog',
     'personal',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
